@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ─── SECURITY HEADERS ─────────────────────────────────────────────────────
+         CSP: allow scripts only from our trusted CDNs + self.
+         Prevents XSS injection from third-party or injected scripts.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self'
+            https://cdnjs.cloudflare.com
+            https://cdn.jsdelivr.net;
+        style-src  'self' 'unsafe-inline'
+            https://fonts.googleapis.com
+            https://cdnjs.cloudflare.com;
+        font-src   'self'
+            https://fonts.gstatic.com
+            https://cdnjs.cloudflare.com;
+        img-src    'self' data: blob:;
+        connect-src 'self';
+        frame-src  'none';
+        object-src 'none';
+        base-uri   'self';
+        form-action 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <!-- ─── SEO ─────────────────────────────────────────────────────────────────── -->
+    <meta name="description" content="JK Forge and Fittings - Premium ASME/ANSI Fitting Dimension Calculator &amp; Technical RFQ Portal. Manufacturers of high-quality Carbon, Stainless, and Alloy Steel Forged Fittings and Flanges.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="JK Forge and Fittings | B2B Dimension Calculator &amp; RFQ Portal">
+    <meta property="og:description" content="Industrial B2B portal for forged fittings and flanges. ASME B16.9 and B16.11 certified manufacturer in Vadodara, India.">
+    <meta property="og:type" content="website">
+    <title>JK Forge and Fittings | B2B Dimension Calculator &amp; RFQ Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons (SRI hash for integrity) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          integrity="sha512-Avb2QiuDEEvB4bZJYdab9lxSqeEVL5F8GVDOU5lw0VH8klhTuUa0fDAQBi1fP+2LcwtxMzKJOvv+1CPMkL3Rg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=3.0.0">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar-header">
+        <div class="nav-container">
+            <a href="#" class="logo-link">
+                <div class="logo-container">
+                    <svg viewBox="0 0 100 80" class="logo-svg">
+                        <!-- Pipeline valve T-junction and circular wheel (ASME Logo Transcription) -->
+                        <rect x="25" y="24" width="50" height="10" fill="currentColor" rx="2" />
+                        <rect x="20" y="20" width="5" height="18" fill="currentColor" />
+                        <rect x="75" y="20" width="5" height="18" fill="currentColor" />
+                        <rect x="44" y="34" width="12" height="24" fill="currentColor" />
+                        <circle cx="50" cy="46" r="10" fill="none" stroke="currentColor" stroke-width="4" />
+                        <circle cx="50" cy="46" r="3" fill="currentColor" />
+                        <text x="28" y="76" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="currentColor" letter-spacing="1">JK</text>
+                    </svg>
+                    <div class="logo-text">
+                        <span class="company-name">JK FORGE & FITTINGS</span>
+                        <span class="company-subtitle">Refinery Fitting & Solutions</span>
+                    </div>
+                </div>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#portal" class="nav-link">B2B Portal</a>
+                <a href="#rfq" class="nav-link">RFQ Builder</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> ASME B16.9 & B16.11 Certified</span>
+            <h1 class="hero-title">Industrial Dimension Calculator <br>& <span class="highlight-text">Technical RFQ Portal</span></h1>
+            <p class="hero-description">
+                Interactive B2B lookup utility and specification generator for Refinery Fittings & Flanges. Select dimensions, check clearances, and compile direct requests for quote.
+            </p>
+            <div class="hero-actions">
+                <a href="#portal" class="btn btn-primary">Open Calculator <i class="fa-solid fa-calculator"></i></a>
+                <a href="#rfq" class="btn btn-secondary">Request a Quote <i class="fa-solid fa-file-invoice"></i></a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">Scroll to start</span>
+            <div class="scroll-dot"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-text-content">
+                    <span class="section-subtitle">Overview</span>
+                    <h2 class="section-title">High-Pressure Piping Partners</h2>
+                    <p class="about-paragraph">
+                        Welcome to JK Forge & Fittings, a trusted manufacturer of high-quality Carbon Steel Forged Fittings (ASTM A105), Stainless Steel fittings (ASTM A403), and Flanges (ANSI B16.5). We proudly serve critical sectors including Oil & Gas, Refineries, Power Plants, Petrochemicals, and EPC contractors.
+                    </p>
+                    <p class="about-paragraph">
+                        Our manufacturing facility in Vadodara, Gujarat is equipped with advanced forging machinery and CNC centers to deliver precision-engineered products meeting rigorous international standards and specific client specifications.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">ASME</span>
+                            <span class="stat-label">Standards Compliant</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">ASTM A105</span>
+                            <span class="stat-label">Core Forged Grade</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">Class 9000#</span>
+                            <span class="stat-label">Max Pressure Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-wrapper">
+                    <div class="factory-graphic">
+                        <div class="refinery-pipe-mesh">
+                            <div class="mesh-line mesh-line-1"></div>
+                            <div class="mesh-line mesh-line-2"></div>
+                            <div class="mesh-line mesh-line-3"></div>
+                            <div class="mesh-node mesh-node-1"></div>
+                            <div class="mesh-node mesh-node-2"></div>
+                        </div>
+                        <div class="factory-info-card">
+                            <i class="fa-solid fa-microchip"></i>
+                            <h4>Interactive Engineering</h4>
+                            <p>This B2B portal helps process piping engineers quickly look up dimensions and generate digital RFQs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B Portal (Calculator & 3D Explorer) -->
+    <section id="portal" class="portal-section">
+        <div class="section-container">
+            <div class="section-header-center">
+                <span class="section-subtitle">Engineering Workbench</span>
+                <h2 class="section-title">ASME Fitting Dimension Calculator</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="portal-grid">
+                <!-- Left Column: Visualizer & Details -->
+                <div class="visualizer-container-col">
+                    <div class="canvas-container-wrapper">
+                        <!-- Loading overlay -->
+                        <div class="canvas-loader" id="canvas-loader">
+                            <div class="spinner"></div>
+                            <span>Generating Brushed Metal Textures...</span>
+                        </div>
+                        <div class="viewer-instructions">
+                            <span><i class="fa-solid fa-rotate"></i> Left-Click + Drag to rotate</span>
+                            <span><i class="fa-solid fa-arrows-up-down"></i> Scroll to zoom</span>
+                        </div>
+                        <div id="threejs-canvas-container"></div>
+                        
+                        <!-- Dynamic Overlay CAD Annotations (Direct Specs on 3D Model) -->
+                        <div class="dimension-overlay-labels" id="dimension-labels-container">
+                            <div class="dim-callout" id="callout-1">
+                                <span class="callout-title" id="lbl-title-1">Outside Diameter (D)</span>
+                                <span class="callout-value" id="lbl-val-1">--</span>
+                            </div>
+                            <div class="dim-callout" id="callout-2">
+                                <span class="callout-title" id="lbl-title-2">Wall Thickness (T)</span>
+                                <span class="callout-value" id="lbl-val-2">--</span>
+                            </div>
+                            <div class="dim-callout" id="callout-3">
+                                <span class="callout-title" id="lbl-title-3">Center to Face (A)</span>
+                                <span class="callout-value" id="lbl-val-3">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specs Display Panel -->
+                    <div class="visualizer-details-card" id="details-card">
+                        <h4 id="detail-title">90° Long Radius Elbow</h4>
+                        <p id="detail-desc">Buttweld elbows are used to alter the flow direction in pipeline systems. They are precision forged to provide smooth, low-friction transitions.</p>
+                        <ul class="detail-specs">
+                            <li><strong>Standards:</strong> ANSI B16.9 / MSS SP-43</li>
+                            <li><strong>Common Sizes:</strong> 1/4" to 24" Seamless, 8" to 42" Welded</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Lookups -->
+                <div class="calculator-container-col">
+                    <div class="glass-card calculator-card">
+                        <h3>Vessel & Fitting Specs Lookup</h3>
+                        <p class="calc-desc">Select a category and fitting size to pull values directly from our ANSI/ASME standard data tables.</p>
+                        
+                        <div class="calc-selectors">
+                            <div class="form-group">
+                                <label for="calc-category">Fitting Category</label>
+                                <select id="calc-category">
+                                    <option value="elbow">Buttweld Fittings (Elbows, Tees)</option>
+                                    <option value="forged">Forged & Screwed Fittings (3000# / 6000#)</option>
+                                    <option value="flange">ASME B16.5 Flanges (Class 150 / 300 / 600)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="calc-size">Nominal Size (NPS)</label>
+                                    <select id="calc-size">
+                                        <!-- Populated via JS -->
+                                    </select>
+                                </div>
+                                <div class="form-group" id="class-container">
+                                    <label for="calc-class">Rating / Schedule</label>
+                                    <select id="calc-class">
+                                        <!-- Populated via JS -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results Table -->
+                        <div class="dimensions-display-box">
+                            <h4>Standard Dimensions (ANSI/ASME)</h4>
+                            <div id="calculator-results-table">
+                                <!-- Generated via JS -->
+                            </div>
+                        </div>
+
+                        <div class="calculator-actions">
+                            <button class="btn btn-primary btn-block" id="add-to-rfq-btn">
+                                <i class="fa-solid fa-cart-plus"></i> Add Selection to RFQ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Step RFQ Section -->
+    <section id="rfq" class="rfq-section">
+        <div class="section-container">
+            <div class="rfq-grid">
+                <!-- Left: Instructions & Contact Details -->
+                <div class="rfq-instructions-panel">
+                    <span class="section-subtitle">Procurement</span>
+                    <h2 class="section-title">Technical RFQ Builder</h2>
+                    <p class="rfq-intro">
+                        Compile a list of required components. You can add items using the Dimension Calculator above or enter them manually. Once compiled, submit the RFQ to generate a downloadable PDF specification sheet.
+                    </p>
+                    
+                    <div class="step-indicator-container">
+                        <div class="step-indicator active" id="step-ind-1">
+                            <span class="step-num">1</span>
+                            <span class="step-label">RFQ List</span>
+                        </div>
+                        <div class="step-indicator" id="step-ind-2">
+                            <span class="step-num">2</span>
+                            <span class="step-label">Contact Details</span>
+                        </div>
+                        <div class="step-indicator" id="step-ind-3">
+                            <span class="step-num">3</span>
+                            <span class="step-label">Confirmation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Multi-step Form Card -->
+                <div class="rfq-form-panel">
+                    <div class="glass-card rfq-form-card">
+                        
+                        <!-- STEP 1: RFQ Items List -->
+                        <div class="rfq-step-content active" id="rfq-step-1">
+                            <h3>Step 1: Your Quote Items</h3>
+                            <p class="step-desc">Add, edit, or remove the fittings and flanges required for your project.</p>
+                            
+                            <div class="rfq-items-table-wrapper">
+                                <table class="rfq-items-table" id="rfq-items-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Material Grade</th>
+                                            <th style="width: 80px;">Qty</th>
+                                            <th style="width: 50px;">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rfq-items-body">
+                                        <!-- Line items will appear here -->
+                                        <tr class="empty-row">
+                                            <td colspan="4">No items added yet. Use the B2B calculator above to add specifications or fill them manually.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Manual Add Row -->
+                            <div class="manual-add-row">
+                                <input type="text" id="manual-desc" placeholder="e.g. 90° Elbow 2 inch SCH 80">
+                                <select id="manual-material">
+                                    <option value="ASTM A105 Carbon Steel">ASTM A105 Carbon Steel</option>
+                                    <option value="ASTM A234 WPB Carbon Steel">ASTM A234 WPB Carbon Steel</option>
+                                    <option value="ASTM A403 WP304 Stainless Steel">ASTM A403 WP304 Stainless Steel</option>
+                                    <option value="ASTM A403 WP316 Stainless Steel">ASTM A403 WP316 Stainless Steel</option>
+                                    <option value="ASTM 182 F11/F22 Alloy Steel">ASTM 182 F11/F22 Alloy Steel</option>
+                                </select>
+                                <input type="number" id="manual-qty" value="1" min="1" style="width: 70px;">
+                                <button class="btn btn-secondary" id="manual-add-btn" style="padding: 10px 15px;"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+
+                            <div class="step-actions">
+                                <button class="btn btn-primary" id="btn-next-step-1" disabled>
+                                    Next: Contact Info <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: Contact Details -->
+                        <div class="rfq-step-content" id="rfq-step-2">
+                            <h3>Step 2: Company Details</h3>
+                            <p class="step-desc">Enter your business information to receive a formal quotation.</p>
+                            
+                            <form id="rfq-contact-form" class="inquiry-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="rfq-name">Full Name *</label>
+                                        <input type="text" id="rfq-name" required placeholder="John Doe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rfq-email">Business Email *</label>
+                                        <input type="email" id="rfq-email" required placeholder="john@refineryservices.com">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="rfq-phone">Phone Number *</label>
+                                        <input type="tel" id="rfq-phone" required placeholder="+91 98765 43210">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rfq-company">Company Name *</label>
+                                        <input type="text" id="rfq-company" required placeholder="Refinery Engineering Corp">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rfq-notes">Special Requirements / Project Timelines</label>
+                                    <textarea id="rfq-notes" rows="3" placeholder="Specify any mill testing, double-flange requirements, packaging criteria, etc."></textarea>
+                                </div>
+                                
+                                <div class="step-actions">
+                                    <button type="button" class="btn btn-secondary" id="btn-prev-step-2">
+                                        <i class="fa-solid fa-arrow-left"></i> Back to Items
+                                    </button>
+                                    <button type="submit" class="btn btn-primary" id="btn-submit-rfq">
+                                        Submit RFQ & Generate Spec Sheet <i class="fa-solid fa-file-pdf"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- STEP 3: Confirmation & Spec Sheet Download -->
+                        <div class="rfq-step-content" id="rfq-step-3">
+                            <div class="confirmation-success-icon">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h3>RFQ Transmitted Successfully!</h3>
+                            <p class="step-desc">Your technical request for quote has been sent to our sales engineering office in Vadodara.</p>
+                            
+                            <div class="success-info-box">
+                                <p><strong>RFQ Reference:</strong> <span id="rfq-ref-num">RFQ-2026-98124</span></p>
+                                <p>A confirmation email with estimated lead times has been sent to your business email.</p>
+                            </div>
+
+                            <button class="btn btn-primary btn-block" id="btn-download-pdf">
+                                Download Specification Sheet (PDF) <i class="fa-solid fa-download"></i>
+                            </button>
+                            
+                            <button class="btn btn-secondary btn-block" id="btn-reset-rfq" style="margin-top: 12px;">
+                                Create New RFQ <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Factory Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="contact-grid">
+                <div class="contact-info-panel">
+                    <span class="section-subtitle">Get in Touch</span>
+                    <h2 class="section-title">Refinery Solutions Office</h2>
+                    <p class="contact-intro">
+                        Contact our sales engineers directly for custom forging sizes, custom flange faces, and specialized metallurgy configurations.
+                    </p>
+                    
+                    <div class="contact-details-list">
+                        <div class="contact-detail-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="detail-text">
+                                <h4>Registered Address</h4>
+                                <p>Aatmiya-2 Industrial Park, Shed No. 241, NH-48, Manglej, Vadodara, Gujarat - 391243, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="detail-text">
+                                <h4>Phone Numbers</h4>
+                                <p><a href="tel:+919265812077">+91 92658 12077</a></p>
+                                <p><a href="tel:+919558788870">+91 95587 88870</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="detail-text">
+                                <h4>Email Address</h4>
+                                <p><a href="mailto:Sales@jkforge.in">Sales@jkforge.in</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Place Holder / Refinery Graphic -->
+                <div class="contact-graphic-panel">
+                    <div class="glass-card contact-map-card">
+                        <div class="refinery-silo-map">
+                            <i class="fa-solid fa-map-location-dot map-bg-icon"></i>
+                            <h4>Vadodara Manufacturing corridor</h4>
+                            <p>Located in the heart of Gujarat's refinery engineering corridor, providing convenient logistics connections to ports and major refinery hubs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <div class="logo-container">
+                        <svg viewBox="0 0 100 80" class="logo-svg footer-logo">
+                            <!-- Pipeline valve T-junction and circular wheel (ASME Logo Transcription) -->
+                            <rect x="25" y="24" width="50" height="10" fill="currentColor" rx="2" />
+                            <rect x="20" y="20" width="5" height="18" fill="currentColor" />
+                            <rect x="75" y="20" width="5" height="18" fill="currentColor" />
+                            <rect x="44" y="34" width="12" height="24" fill="currentColor" />
+                            <circle cx="50" cy="46" r="10" fill="none" stroke="currentColor" stroke-width="4" />
+                            <circle cx="50" cy="46" r="3" fill="currentColor" />
+                            <text x="28" y="76" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="currentColor" letter-spacing="1">JK</text>
+                        </svg>
+                        <div class="logo-text">
+                            <span class="company-name text-white">JK FORGE & FITTINGS</span>
+                            <span class="company-subtitle text-gray">Refinery Fitting & Solutions</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Engineering B2B custom components for high-pressure refinery systems. ASME B16.9 and B16.11 compliant fitting fabricator.
+                    </p>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#portal">Dimension Lookup</a></li>
+                        <li><a href="#rfq">RFQ Builder</a></li>
+                        <li><a href="#contact">Contact Details</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-products-col">
+                    <h4>Standard Catalogs</h4>
+                    <ul class="footer-links">
+                        <li><a href="#portal">Buttweld Fittings (Elbows/Tees)</a></li>
+                        <li><a href="#portal">Forged Socketweld Fittings</a></li>
+                        <li><a href="#portal">ASME B16.5 Flanges</a></li>
+                        <li><a href="#portal">Carbon Steel ASTM A105</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 JK Forge & Fittings. All Rights Reserved. Designed with WebGL Studio Environments.</p>
+                <div class="footer-bottom-links">
+                    <span>ASME Standard & Quality Assurance Certified</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js r167 (latest stable — fixes memory leaks in r128 CubeCamera) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.167.1/three.min.js"
+            integrity="sha512-l7OgkzT4gJj6kFfuLXn0o0EQJLs3B+7p4g7KJe7GjzJBmzjYJrTPKxZoOBhHXGHCw2FqeW3bpFcB/uyS8N4A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- OrbitControls for r167 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.167.1/examples/js/controls/OrbitControls.js"
+            crossorigin="anonymous"></script>
+    <!-- Main Application (cache-busted) -->
+    <script src="main.js?v=3.0.0"></script>
+</body>
+</html>

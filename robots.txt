@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://jkforge.in/sitemap.xml
