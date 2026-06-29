@@ -87,18 +87,23 @@
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> ASME B16.9 & B16.11 Certified</span>
-            <h1 class="hero-title">Industrial Dimension Calculator <br>& <span class="highlight-text">Technical RFQ Portal</span></h1>
+            <span class="hero-badge"><i class="fa-solid fa-industry"></i> Trusted by Top EPC & Refinery Contractors</span>
+            <h1 class="hero-title">High-Pressure Forged Fittings <br>& <span class="highlight-text">Flange Solutions</span></h1>
             <p class="hero-description">
-                Interactive B2B lookup utility and specification generator for Refinery Fittings & Flanges. Select dimensions, check clearances, and compile direct requests for quote.
+                Accelerate your procurement cycle with our interactive B2B portal. Look up ASME/ANSI dimensions, verify clearances, and instantly generate digital Requests For Quote (RFQ) tailored for the Oil & Gas sector.
             </p>
             <div class="hero-actions">
                 <a href="#portal" class="btn btn-primary">Open Calculator <i class="fa-solid fa-calculator"></i></a>
                 <a href="#rfq" class="btn btn-secondary">Request a Quote <i class="fa-solid fa-file-invoice"></i></a>
             </div>
+            <div style="margin-top:20px; font-size:12px; color:var(--text3); display:flex; gap:15px; justify-content:center; align-items:center;">
+                <span><i class="fa-solid fa-check-circle" style="color:var(--success)"></i> ISO 9001:2015</span>
+                <span><i class="fa-solid fa-check-circle" style="color:var(--success)"></i> ASTM A105 / A403</span>
+                <span><i class="fa-solid fa-check-circle" style="color:var(--success)"></i> 100% Traceability (MTC)</span>
+            </div>
         </div>
         <div class="hero-scroll-indicator">
-            <span class="scroll-text">Scroll to start</span>
+            <span class="scroll-text">Scroll to explore</span>
             <div class="scroll-dot"></div>
         </div>
     </section>
@@ -108,13 +113,13 @@
         <div class="section-container">
             <div class="about-grid">
                 <div class="about-text-content">
-                    <span class="section-subtitle">Overview</span>
-                    <h2 class="section-title">High-Pressure Piping Partners</h2>
+                    <span class="section-subtitle">Why JK Forge?</span>
+                    <h2 class="section-title">Engineered for EPCs & Refineries</h2>
                     <p class="about-paragraph">
-                        Welcome to JK Forge & Fittings, a trusted manufacturer of high-quality Carbon Steel Forged Fittings (ASTM A105), Stainless Steel fittings (ASTM A403), and Flanges (ANSI B16.5). We proudly serve critical sectors including Oil & Gas, Refineries, Power Plants, Petrochemicals, and EPC contractors.
+                        JK Forge & Fittings is an established, ISO 9001:2015 certified manufacturer of high-pressure piping components. We specialize in rapidly fulfilling large-scale procurement demands for EPC contractors, Petrochemical Refineries, and Oil & Gas infrastructure projects across the globe.
                     </p>
                     <p class="about-paragraph">
-                        Our manufacturing facility in Vadodara, Gujarat is equipped with advanced forging machinery and CNC centers to deliver precision-engineered products meeting rigorous international standards and specific client specifications.
+                        With advanced CNC machining and in-house forging up to Class 9000#, we guarantee 100% material traceability (MTC EN 10204 3.1) on every ASTM A105 Carbon Steel and A403 Stainless Steel fitting that leaves our Vadodara facility.
                     </p>
                     <div class="about-stats">
                         <div class="stat-item">
@@ -366,6 +371,29 @@
                                     <div class="form-group">
                                         <label for="rfq-company">Company Name *</label>
                                         <input type="text" id="rfq-company" required placeholder="Refinery Engineering Corp">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="rfq-sector">Target Sector *</label>
+                                        <select id="rfq-sector" required style="width: 100%; padding: 0.8rem; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 4px; color: white;">
+                                            <option value="">Select Industry</option>
+                                            <option value="Oil & Gas">Oil & Gas</option>
+                                            <option value="Refinery">Petrochemical Refinery</option>
+                                            <option value="EPC">EPC Contracting</option>
+                                            <option value="Power">Power Generation</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rfq-volume">Est. Procurement Volume (Tons/Yr) *</label>
+                                        <select id="rfq-volume" required style="width: 100%; padding: 0.8rem; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 4px; color: white;">
+                                            <option value="">Select Volume</option>
+                                            <option value="< 10 Tons">Less than 10 Tons</option>
+                                            <option value="10-50 Tons">10 - 50 Tons</option>
+                                            <option value="50-100 Tons">50 - 100 Tons</option>
+                                            <option value="100+ Tons">100+ Tons</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
