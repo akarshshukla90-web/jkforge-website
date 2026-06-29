@@ -164,10 +164,24 @@ function initB2BCalculator() {
     const classSelect = document.getElementById("calc-class");
     const resultsTable = document.getElementById("calculator-results-table");
     const addToRfqBtn = document.getElementById("add-to-rfq-btn");
+    const calcWeightBtn = document.getElementById("calcWeightBtn");
+    const weightQty = document.getElementById("weightQty");
+    const weightResult = document.getElementById("weightResult");
 
     categorySelect.addEventListener("change", populateSelectors);
     sizeSelect.addEventListener("change", renderCalculatedDimensions);
     classSelect.addEventListener("change", renderCalculatedDimensions);
+
+    if (calcWeightBtn) {
+        calcWeightBtn.addEventListener("click", () => {
+            const qty = parseInt(weightQty.value) || 1;
+            const size = parseFloat(sizeSelect.value) || 1;
+            const weight = (size * size * 0.5 * qty).toFixed(2); // Simple rough formula mockup
+            weightResult.textContent = `Total Est. Weight: ${weight} kg`;
+            weightResult.style.animation = "none";
+            setTimeout(() => weightResult.style.animation = "pulse 0.5s ease", 10);
+        });
+    }
 
     // Initial load
     populateSelectors();
